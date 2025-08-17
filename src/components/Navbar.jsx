@@ -35,9 +35,7 @@ const Navbar = () => {
         }`}
         style={{ width: "100vw", maxWidth: "100vw" }}
       >
-        {/* Mobile container with better alignment */}
         <div className="flex items-center justify-between h-16 w-full px-3 sm:px-4 lg:hidden">
-          {/* Logo */}
           <div className="flex items-center h-full min-w-0 max-w-[calc(100vw-60px)]">
             <img
               src={logo}
@@ -47,7 +45,6 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Hamburger Menu Icon - Perfectly aligned */}
           <button
             className="flex items-center justify-center w-10 h-10 text-black focus:outline-none focus:ring-0 shadow-none border-0 bg-transparent"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -62,10 +59,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Desktop container */}
         <div className="hidden lg:block w-full py-4 px-4 sm:px-6 lg:px-8 max-w-[1120px] mx-auto">
           <div className="flex justify-between items-center w-full">
-            {/* Logo */}
             <div className="flex-shrink-0 flex items-center h-full">
               <img
                 src={logo}
@@ -75,7 +70,6 @@ const Navbar = () => {
               />
             </div>
 
-            {/* Desktop Navigation */}
             <nav className="flex items-center justify-end">
               <div className="flex items-center gap-10">
                 {["Entreprises", "Shopper", "faqs"].map((section, index) => (
@@ -98,7 +92,6 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Mobile Navigation Overlay */}
       <div
         className={`lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${
           menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -106,21 +99,14 @@ const Navbar = () => {
         onClick={() => setMenuOpen(false)}
       />
 
-      {/* Mobile Navigation Menu */}
       <nav
-        className={`lg:hidden fixed top-0 right-0 h-full w-full max-w-xs bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-xs bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Menu Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-200/20 min-h-[80px]">
-          <div className="flex-1 min-w-0">
-            {/* <img
-              src={logo}
-              alt="NEO Medical Logo"
-              className="w-full h-full object-contain"
-            /> */}
-          </div>
+          <div className="flex-1 min-w-0"></div>
           <button
             onClick={() => setMenuOpen(false)}
             className="flex-shrink-0 flex items-center justify-center w-10 h-10 text-black rounded-full transition-colors focus:outline-none hover:bg-gray-200/10"
