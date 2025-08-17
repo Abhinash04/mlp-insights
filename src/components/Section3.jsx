@@ -59,7 +59,7 @@ const Section3 = () => {
 
   return (
     <>
-      <div id="Entreprises"></div>
+      <div id="Shopper"></div>
       <section className="relative bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}

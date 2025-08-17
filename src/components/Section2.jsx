@@ -84,7 +84,7 @@ const Section2 = () => {
 
   return (
     <>
-    <div id="Accueil"></div>
+    <div id="Entreprises"></div>
     <section className="bg-slate-50 py-20 px-4" id="business-offers" >
       <div className="max-w-7xl mx-auto">
         {/* Header */}

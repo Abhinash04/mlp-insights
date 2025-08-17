@@ -77,17 +77,18 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <nav className="flex items-center justify-end">
               <div className="flex items-center gap-10">
-                {["Accueil", "Entreprises", "faqs"].map((section, index) => (
+                {["Entreprises", "Shopper", "faqs"].map((section, index) => (
                   <button
                     key={index}
                     role="menuitem"
                     onClick={() => scrollToSection(section)}
                     className="text-base font-azeret font-semibold leading-[19px] text-global-1 transition-colors duration-200 focus:outline-none focus:ring-0"
                   >
-                    {section === "Accueil"
-                      ? "ACCUEIL"
-                      : section === "Entreprises"
+                    {section === "Entreprises"
                       ? "ENTREPRISES"
+                      
+                      : section === "Shopper"
+                      ? "SHOPPER"
                       : "FAQs"}
                   </button>
                 ))}
@@ -146,11 +147,11 @@ const Navbar = () => {
         <div className="flex flex-col p-6 space-y-2">
           <button
             role="menuitem"
-            onClick={() => scrollToSection("Accueil")}
+            onClick={() => scrollToSection("Entreprises")}
             className="group text-lg font-azeret font-medium text-global-1 transition-all duration-200 text-left py-4 px-4 rounded-lg hover:bg-gray-200/10 border-l-4 border-transparent hover:border-global-1"
           >
             <span className="flex items-center">
-              Accueil
+              Entreprises
               <svg
                 className="w-5 h-5 ml-auto transform group-hover:translate-x-1 transition-transform duration-200"
                 fill="none"
@@ -169,11 +170,11 @@ const Navbar = () => {
 
           <button
             role="menuitem"
-            onClick={() => scrollToSection("Entreprises")}
+            onClick={() => scrollToSection("Shopper")}
             className="group text-lg font-azeret font-medium text-global-1 transition-all duration-200 text-left py-4 px-4 rounded-lg hover:bg-gray-200/10 border-l-4 border-transparent hover:border-global-1"
           >
             <span className="flex items-center">
-              Entreprises
+              Shopper
               <svg
                 className="w-5 h-5 ml-auto transform group-hover:translate-x-1 transition-transform duration-200"
                 fill="none"
