@@ -30,14 +30,15 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`w-full top-0 bg-white px-4 sm:px-6 lg:px-8 fixed z-50 transition-shadow duration-300 ${
+        className={`w-screen max-w-full top-0 bg-white fixed z-50 transition-shadow duration-300 overflow-hidden ${
           hasShadow ? "shadow-lg" : ""
         }`}
+        style={{ width: "100vw", maxWidth: "100vw" }}
       >
         {/* Mobile container with better alignment */}
-        <div className="flex items-center justify-between h-16 max-w-[1120px] mx-auto lg:hidden">
+        <div className="flex items-center justify-between h-16 w-full px-3 sm:px-4 lg:hidden">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center h-full">
+          <div className="flex items-center h-full min-w-0 max-w-[calc(100vw-60px)]">
             <img
               src={logo}
               alt="NEO Medical Logo"
@@ -48,21 +49,21 @@ const Navbar = () => {
 
           {/* Hamburger Menu Icon - Perfectly aligned */}
           <button
-            className="flex items-center justify-center w-8 h-8 text-global-1 focus:outline-none focus:ring-0 shadow-none border-0 bg-transparent"
+            className="flex items-center justify-center w-10 h-10 text-black focus:outline-none focus:ring-0 shadow-none border-0 bg-transparent"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen(!menuOpen)}
             style={{ boxShadow: "none" }}
           >
             {menuOpen ? (
-              <X className="w-6 h-6 hidden" />
+              <X className="w-5 h-5 hidden" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5" />
             )}
           </button>
         </div>
 
         {/* Desktop container */}
-        <div className="hidden lg:block w-full mt-4 mb-4 sm:mt-6 sm:mb-6 max-w-[1120px] mx-auto">
+        <div className="hidden lg:block w-full py-4 px-4 sm:px-6 lg:px-8 max-w-[1120px] mx-auto">
           <div className="flex justify-between items-center w-full">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center h-full">
@@ -82,11 +83,10 @@ const Navbar = () => {
                     key={index}
                     role="menuitem"
                     onClick={() => scrollToSection(section)}
-                    className="text-base font-azeret font-semibold leading-[19px] text-global-1 transition-colors duration-200 focus:outline-none focus:ring-0"
+                    className="text-base font-azeret font-semibold leading-[19px] text-black transition-colors duration-200 focus:outline-none focus:ring-0"
                   >
                     {section === "Entreprises"
                       ? "ENTREPRISES"
-                      
                       : section === "Shopper"
                       ? "SHOPPER"
                       : "FAQs"}
@@ -108,13 +108,13 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <nav
-        className={`lg:hidden fixed top-0 right-0 h-full w-full max-w-xs bg-global-4 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-full max-w-xs bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Menu Header */}
-        <div className="flex justify-between items-center p-6 border-b border-gray-200/20">
-          <div className="w-32 h-7">
+        <div className="flex justify-between items-center p-6 border-b border-gray-200/20 min-h-[80px]">
+          <div className="flex-1 min-w-0">
             {/* <img
               src={logo}
               alt="NEO Medical Logo"
@@ -123,101 +123,36 @@ const Navbar = () => {
           </div>
           <button
             onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-center w-8 h-8 text-global-1 rounded-full transition-colors focus:outline-none focus:ring-0 shadow-none border-0 bg-transparent"
+            className="flex-shrink-0 flex items-center justify-center w-10 h-10 text-black rounded-full transition-colors focus:outline-none hover:bg-gray-200/10"
             aria-label="Close menu"
-            style={{ boxShadow: "none" }}
           >
-            <svg
-              className="w-6 h-6 text-global-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <X className="w-10 h-10" />
           </button>
         </div>
 
         {/* Menu Items */}
         <div className="flex flex-col p-6 space-y-2">
-          <button
-            role="menuitem"
-            onClick={() => scrollToSection("Entreprises")}
-            className="group text-lg font-azeret font-medium text-global-1 transition-all duration-200 text-left py-4 px-4 rounded-lg hover:bg-gray-200/10 border-l-4 border-transparent hover:border-global-1"
-          >
-            <span className="flex items-center">
-              Entreprises
-              <svg
-                className="w-5 h-5 ml-auto transform group-hover:translate-x-1 transition-transform duration-200"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </span>
-          </button>
-
-          <button
-            role="menuitem"
-            onClick={() => scrollToSection("Shopper")}
-            className="group text-lg font-azeret font-medium text-global-1 transition-all duration-200 text-left py-4 px-4 rounded-lg hover:bg-gray-200/10 border-l-4 border-transparent hover:border-global-1"
-          >
-            <span className="flex items-center">
-              Shopper
-              <svg
-                className="w-5 h-5 ml-auto transform group-hover:translate-x-1 transition-transform duration-200"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </span>
-          </button>
-
-          <button
-            role="menuitem"
-            onClick={() => scrollToSection("faqs")}
-            className="group text-lg font-azeret font-medium text-global-1 transition-all duration-200 text-left py-4 px-4 rounded-lg hover:bg-gray-200/10 border-l-4 border-transparent hover:border-global-1"
-          >
-            <span className="flex items-center">
-              Faqs
-              <svg
-                className="w-5 h-5 ml-auto transform group-hover:translate-x-1 transition-transform duration-200"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </span>
-          </button>
+          {[
+            { id: "Entreprises", label: "Entreprises" },
+            { id: "Shopper", label: "Shopper" },
+            { id: "faqs", label: "FAQs" },
+          ].map((item) => (
+            <button
+              key={item.id}
+              role="menuitem"
+              onClick={() => scrollToSection(item.id)}
+              className="group text-lg font-azeret font-medium text-black transition-all duration-200 text-left py-4 px-4 rounded-lg hover:bg-gray-200/10 border-l-4 border-transparent hover:border-black"
+            >
+              <span className="flex items-center justify-between w-full">
+                {item.label}
+              </span>
+            </button>
+          ))}
         </div>
 
         {/* Menu Footer */}
         <div className="absolute bottom-6 left-6 right-6 text-center">
-          <p className="text-sm text-global-3/70 font-azeret">
+          <p className="text-sm text-grey-500 font-azeret">
             © 2025 MLP Insights
           </p>
         </div>
