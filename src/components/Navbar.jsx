@@ -34,6 +34,7 @@ const Navbar = () => {
 
     if (menuOpen) {
       document.addEventListener('click', handleClickOutside);
+      // Prevent body scroll when menu is open on mobile
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -58,46 +59,43 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main Navbar - Strict viewport constraints */}
+      {/* Fixed/Sticky Header Container */}
       <header
-        className={`fixed top-0 left-0 right-0 w-full max-w-full bg-white z-50 transition-all duration-300 overflow-hidden ${
+        className={`fixed top-0 left-0 right-0 w-full bg-white z-50 transition-shadow duration-300 ${
           hasShadow ? "shadow-lg" : ""
         }`}
-        style={{ maxWidth: '100vw' }}
+        style={{ 
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100%',
+          maxWidth: '100vw'
+        }}
       >
-        {/* Mobile Header - Ultra strict constraints */}
-        <div className="lg:hidden w-full max-w-full overflow-hidden">
-          <div className="flex items-center justify-between h-16 px-2 sm:px-3 w-full max-w-full min-w-0">
-            {/* Logo Container - Constrained */}
-            <div className="flex items-center min-w-0 flex-shrink overflow-hidden max-w-[calc(100vw-4rem)]">
+        {/* Mobile Header */}
+        <div className="lg:hidden w-full">
+          <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+            <div className="flex items-center flex-shrink-0">
               <div 
-                className="cursor-pointer flex items-center min-w-0 overflow-hidden"
+                className="cursor-pointer flex items-center hover:opacity-80 transition-opacity"
                 onClick={() => scrollToSection("hero")}
                 onKeyDown={(e) => handleKeyDown(e, () => scrollToSection("hero"))}
                 tabIndex={0}
                 role="button"
                 aria-label="Go to home section"
               >
-                {/* <img
+                <img
                   src={logo}
                   alt="MLP Insights"
-                  className="h-12 sm:h-10 w-auto max-w-full object-contain cursor-pointer flex-shrink-0 scale-150"
-                  style={{ maxHeight: '40px', maxWidth: 'calc(100vw - 5rem)' }}
-                  onClick={() => scrollToSection("hero")}
-                /> */}
-                <img
-                src={logo}
-                alt="MLP Insights"
-                className="h-24 sm:h-24 object-contain cursor-pointer"
-                onClick={() => scrollToSection("hero")}
-              />
+                  className="h-10 w-auto object-contain cursor-pointer scale-200"
+                />
               </div>
             </div>
 
-            {/* Menu Button - Fixed size */}
-            <div className="flex-shrink-0 ml-2">
+            <div className="flex-shrink-0">
               <button
-                className="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md transition-colors"
+                className="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md transition-all duration-200"
                 aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -113,11 +111,11 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Header - Proper constraints */}
-        <div className="hidden lg:block w-full max-w-full overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="flex justify-between items-center h-16 w-full min-w-0">
-              <div className="flex-shrink-0 min-w-0">
+        {/* Desktop Header */}
+        <div className="hidden lg:block w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex-shrink-0">
                 <div 
                   className="cursor-pointer hover:opacity-80 transition-opacity flex items-center"
                   onClick={() => scrollToSection("hero")}
@@ -129,20 +127,18 @@ const Navbar = () => {
                   <img
                     src={logo}
                     alt="MLP Insights"
-                    className="h-10 w-auto max-w-full object-contain cursor-pointer scale-300"
-                    style={{ maxHeight: '40px' }}
-                    onClick={() => scrollToSection("hero")}
+                    className="h-10 w-auto object-contain cursor-pointer scale-300"
                   />
                 </div>
               </div>
 
-              <nav className="flex items-center space-x-4 lg:space-x-8 min-w-0" role="navigation">
+              <nav className="flex items-center space-x-4 lg:space-x-8" role="navigation">
                 {["Entreprises", "Shopper", "faqs"].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
                     onKeyDown={(e) => handleKeyDown(e, () => scrollToSection(section))}
-                    className="text-gray-700 hover:text-blue-600 font-medium text-xs lg:text-sm uppercase tracking-wide transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-1 lg:px-2 py-1 whitespace-nowrap"
+                    className="text-gray-700 hover:text-blue-600 font-medium text-sm uppercase tracking-wide transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 whitespace-nowrap"
                     aria-label={`Go to ${section} section`}
                   >
                     {section === "Entreprises"
@@ -157,46 +153,74 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu - Constrained */}
-        <nav
-          className={`lg:hidden w-full max-w-full bg-white border-t border-gray-200 overflow-hidden transition-all duration-300 ease-in-out transform origin-top ${
+        {/* Mobile Dropdown Menu - Improved Animation */}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-200 ${
             menuOpen 
-              ? "max-h-80 opacity-100 scale-y-100" 
-              : "max-h-0 opacity-0 scale-y-95"
+              ? "max-h-96 opacity-100" 
+              : "max-h-0 opacity-0"
           }`}
-          role="navigation"
-          aria-label="Mobile navigation menu"
-          aria-hidden={!menuOpen}
+          style={{
+            transform: menuOpen ? 'translateY(0)' : 'translateY(-10px)',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
         >
-          <div className="px-3 py-2 w-full max-w-full overflow-hidden">
+          <nav
+            role="navigation"
+            aria-label="Mobile navigation menu"
+            aria-hidden={!menuOpen}
+            className="py-2"
+          >
             {[
               { id: "Entreprises", label: "ENTREPRISES" },
               { id: "Shopper", label: "SHOPPER" },
               { id: "faqs", label: "FAQs" },
-            ].map((item) => (
+            ].map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 onKeyDown={(e) => handleKeyDown(e, () => scrollToSection(item.id))}
-                className="w-full max-w-full text-left px-3 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 font-medium text-sm uppercase tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset border-l-4 border-transparent hover:border-blue-500 rounded-r block overflow-hidden"
+                className="w-full text-left px-6 py-4 text-gray-700 hover:text-blue-600 hover:bg-gray-50 font-medium text-sm uppercase tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset border-l-4 border-transparent hover:border-blue-500 block"
                 aria-label={`Go to ${item.label} section`}
                 tabIndex={menuOpen ? 0 : -1}
+                style={{
+                  animationDelay: menuOpen ? `${index * 0.1}s` : '0s',
+                  animation: menuOpen ? 'slideIn 0.3s ease-out forwards' : 'none'
+                }}
               >
-                <span className="truncate block">{item.label}</span>
+                {item.label}
               </button>
             ))}
-          </div>
-        </nav>
+          </nav>
+        </div>
       </header>
 
-      {/* Backdrop for mobile menu */}
+      {/* Backdrop for mobile menu - Improved */}
       {menuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-25 z-40 transition-opacity duration-300"
+          className="lg:hidden fixed inset-0 bg-black z-40 transition-opacity duration-300"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            opacity: menuOpen ? 1 : 0
+          }}
           onClick={() => setMenuOpen(false)}
           aria-hidden="true"
         />
       )}
+
+      {/* Add CSS for slide-in animation */}
+      <style jsx>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </>
   );
 };
