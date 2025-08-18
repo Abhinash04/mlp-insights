@@ -7,29 +7,3 @@ body{
   background-color: grey;
   overflow-x: hidden;
 }
-
-/* Add to your global CSS or component styles */
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999; /* Higher z-index */
-  padding: 1rem;
-  
-  /* Mobile-specific fixes */
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-}
-
-.modal-content {
-  /* Ensure modal doesn't exceed viewport on mobile */
-  max-height: 90vh;
-  max-width: calc(100vw - 2rem);
-  width: 100%;
-  
-  /* Prevent zoom on input focus (iOS) */
-  -webkit-text-size-adjust: 100%;
-}
