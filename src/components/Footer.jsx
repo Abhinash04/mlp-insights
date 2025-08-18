@@ -14,12 +14,12 @@ const Footer = () => {
   };
 
   const handlePrivacyClick = () => {
-    console.log('Privacy policy clicked');
+    console.log("Privacy policy clicked");
     setIsPrivacyModalOpen(true);
   };
 
   const handleGeneralClick = () => {
-    console.log('General conditions clicked');
+    console.log("General conditions clicked");
     setIsGeneralModalOpen(true);
   };
 
@@ -49,14 +49,12 @@ const Footer = () => {
             {/* Legal Links */}
             <ul className="flex flex-col gap-3">
               <li>
-                <button
-                  type="button"
-                  onClick={handlePrivacyClick}
-                  className="text-sm text-gray-700 hover:text-blue-600 cursor-pointer"
-                  aria-label="Ouvrir la politique de confidentialité"
+                <a
+                  href="#Entreprises"
+                  className="text-sm text-gray-700 hover:text-blue-600"
                 >
-                  Politique de Confidentialité
-                </button>
+                  Carrière
+                </a>
               </li>
               <li>
                 <button
@@ -69,12 +67,14 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <a
-                  href="#Entreprises"
-                  className="text-sm text-gray-700 hover:text-blue-600"
+                <button
+                  type="button"
+                  onClick={handlePrivacyClick}
+                  className="text-sm text-gray-700 hover:text-blue-600 cursor-pointer"
+                  aria-label="Ouvrir la politique de confidentialité"
                 >
-                  Carrière
-                </a>
+                  Politique de Confidentialité
+                </button>
               </li>
             </ul>
 
