@@ -39,8 +39,8 @@ const Navbar = () => {
           <div className="flex items-center h-full min-w-0 max-w-[calc(100vw-60px)]">
             <img
               src={logo}
-              alt="NEO Medical Logo"
-              className="h-10 sm:h-10 object-contain cursor-pointer scale-200"
+              alt="MLP Insights"
+              className="h-10 sm:h-10 object-contain cursor-pointer scale-250 ml-4"
               onClick={() => scrollToSection("hero")}
             />
           </div>
@@ -64,7 +64,7 @@ const Navbar = () => {
             <div className="flex-shrink-0 flex items-center h-full">
               <img
                 src={logo}
-                alt="NEO Medical Logo"
+                alt="MLP Insights"
                 className="h-10 sm:h-10 object-contain cursor-pointer scale-300"
                 onClick={() => scrollToSection("hero")}
               />

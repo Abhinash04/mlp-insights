@@ -40,13 +40,13 @@ const Hero = () => {
           <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href="#business-offers"
-              className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
+              className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-[#013671] md:py-4 md:text-lg md:px-10"
             >
               POUR LES ENTREPRISES
             </a>
             <a
               href="#shopper-partner"
-              className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10"
+              className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#013671] bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10"
             >
               POUR LES PARTICULIERS
             </a>
