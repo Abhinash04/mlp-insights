@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
-import { FaLink } from "react-icons/fa6";
 
 const Section4 = () => {
   const [openFAQIndex, setOpenFAQIndex] = useState(null);
@@ -77,6 +75,7 @@ const Section4 = () => {
                   className="flex w-full items-center justify-between px-4 py-5 sm:px-6 text-left"
                   onClick={() => toggleFAQ(index)}
                   aria-expanded={openFAQIndex === index}
+                  aria-controls={`faq-answer-${index}`}
                 >
                   <span className="text-base sm:text-lg font-bold text-black pr-4">
                     {faq.question}
@@ -89,20 +88,10 @@ const Section4 = () => {
                 </button>
 
                 {openFAQIndex === index && (
-                  <div className="px-4 pb-5 sm:px-6 sm:pb-6">
-                    {faq.link && (
-                      <a
-                        href={faq.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-black hover:text-gray-300 font-bold transition-colors inline-flex items-center gap-1 mb-3 text-sm"
-                      >
-                        <FaLink className="w-3 h-3" />
-                        Video tutorial for reference
-                      </a>
-                    )}
-
-                    {/* FAQ Answer */}
+                  <div
+                    id={`faq-answer-${index}`}
+                    className="px-4 pb-5 sm:px-6 sm:pb-6"
+                  >
                     <p className="text-black font-semibold text-sm sm:text-base leading-relaxed">
                       {faq.answer}
                     </p>

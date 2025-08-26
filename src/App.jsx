@@ -5,9 +5,15 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import ClipLoader from "react-spinners/ClipLoader";
 import "./styles.css";
+import ShopperModal from "./components/ShopperModal";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     const handleLoad = () => {
@@ -27,6 +33,7 @@ function App() {
   }, []);
 
   return (
+    <>
     <div>
       {loading && (
         <div
@@ -51,6 +58,7 @@ function App() {
           />
         </div>
       )}
+      <ShopperModal isOpen={isModalOpen} onClose={closeModal} />
 
       <Router>
         <Routes>
@@ -61,6 +69,7 @@ function App() {
         <Toaster position="top-right" />
       </Router>
     </div>
+    </>
   );
 }
 

@@ -61,17 +61,9 @@ const Navbar = () => {
     <>
       {/* Fixed/Sticky Header Container */}
       <header
-        className={`fixed top-0 left-0 right-0 w-full bg-white z-50 transition-shadow duration-300 ${
+        className={`fixed top-0 left-0 right-0 w-full max-w-[100vw] bg-white z-50 transition-shadow duration-300 ${
           hasShadow ? "shadow-lg" : ""
         }`}
-        style={{ 
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          width: '100%',
-          maxWidth: '100vw'
-        }}
       >
         {/* Mobile Header */}
         <div className="lg:hidden w-full">
