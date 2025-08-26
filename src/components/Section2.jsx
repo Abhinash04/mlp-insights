@@ -90,7 +90,7 @@ const Section2 = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Transformez votre <span className="text-blue-600">trafic</span> en{" "}
+            Entreprises: Transformez votre <span className="text-blue-600">trafic</span> en{" "}
             <span className="text-blue-600">revenu tangible</span>
           </h2>
           <p className="text-lg text-gray-600">

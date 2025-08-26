@@ -72,7 +72,7 @@ const GeneralConditionModal = ({ isOpen, onClose }) => {
                 Simplifiée Unipersonnelle) <br />
                 · <strong>Siège social :</strong> 48 Rue de Brézin, 92430
                 Marnes-la-Coquette <br />
-                · <strong>RCS :</strong> En cours d’enregistrement à Nanterre{" "}
+                · <strong>RCS :</strong> 913 959 391
                 <br />
                 · <strong>Directeur de la publication :</strong>{" "}
                 Charles-Édouard De Montmorency <br />
@@ -93,9 +93,9 @@ const GeneralConditionModal = ({ isOpen, onClose }) => {
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 Le Site est hébergé par :<br />
-                · <strong>Nom de l’hébergeur :</strong> [à compléter] <br />
-                · <strong>Adresse :</strong> [Adresse complète] <br />
-                · <strong>Contact :</strong> [Téléphone ou email]
+                · <strong>Nom de l’hébergeur :</strong> OVHcloud <br />
+                · <strong>Adresse :</strong> 2 rue Kellermann, 59100 Roubaix, France <br />
+                · <strong>Contact :</strong> +33 9 72 10 10 07
               </p>
             </div>
 

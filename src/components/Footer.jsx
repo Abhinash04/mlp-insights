@@ -80,7 +80,7 @@ const Footer = () => {
 
             {/* Navigation */}
             <div className="flex flex-col gap-3">
-              {["Entreprises", "Shopper", "faqs"].map((section) => (
+              {["Entreprises", "Shopper", "Témoignages", "faqs"].map((section) => (
                 <button
                   key={section}
                   type="button"

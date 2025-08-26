@@ -63,9 +63,9 @@ const Section3 = () => {
       <section className="relative bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center max-w-5xl mx-auto mb-20">
+          <div className="text-center max-w-7xl mx-auto mb-20">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
-              Générez des revenus complémentaires,{" "}
+              Particuliers: Générez des revenus complémentaires,{" "}
               <span className="text-blue-600">
                 simplement et en toute sécurité.
               </span>

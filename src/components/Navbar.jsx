@@ -95,7 +95,7 @@ const Navbar = () => {
 
             <div className="flex-shrink-0">
               <button
-                className="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md transition-all duration-200"
+                className="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200"
                 aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -133,18 +133,20 @@ const Navbar = () => {
               </div>
 
               <nav className="flex items-center space-x-4 lg:space-x-8" role="navigation">
-                {["Entreprises", "Shopper", "faqs"].map((section) => (
+                {["Entreprises", "Shopper", "Témoignages", "faqs"].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
                     onKeyDown={(e) => handleKeyDown(e, () => scrollToSection(section))}
-                    className="text-gray-700 hover:text-blue-600 font-medium text-sm uppercase tracking-wide transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1 whitespace-nowrap"
+                    className="text-gray-700 hover:text-blue-600 font-medium text-sm uppercase tracking-wide transition-colors duration-200 px-2 py-1 whitespace-nowrap"
                     aria-label={`Go to ${section} section`}
                   >
                     {section === "Entreprises"
                       ? "ENTREPRISES"
                       : section === "Shopper"
                       ? "SHOPPER"
+                      : section === "Témoignages"
+                      ? "TEMOIGNAGES"
                       : "FAQs"}
                   </button>
                 ))}
@@ -174,13 +176,14 @@ const Navbar = () => {
             {[
               { id: "Entreprises", label: "ENTREPRISES" },
               { id: "Shopper", label: "SHOPPER" },
+              { id: "Témoignages", label: "TEMOIGNAGES" },
               { id: "faqs", label: "FAQs" },
             ].map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 onKeyDown={(e) => handleKeyDown(e, () => scrollToSection(item.id))}
-                className="w-full text-left px-6 py-4 text-gray-700 hover:text-blue-600 hover:bg-gray-50 font-medium text-sm uppercase tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset border-l-4 border-transparent hover:border-blue-500 block"
+                className="w-full text-left px-6 py-4 text-gray-700 hover:text-blue-600 hover:bg-gray-50 font-medium text-sm uppercase tracking-wide transition-all duration-200 hover:border-blue-500 block"
                 aria-label={`Go to ${item.label} section`}
                 tabIndex={menuOpen ? 0 : -1}
                 style={{
@@ -195,7 +198,6 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Backdrop for mobile menu - Improved */}
       {menuOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-black z-40 transition-opacity duration-300"
