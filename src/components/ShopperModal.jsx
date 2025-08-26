@@ -29,7 +29,7 @@ const ShopperModal = ({ isOpen, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black bg-opacity-70"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black bg-opacity-70 max-w-[100vw]"
       onClick={handleOverlayClick}
     >
       <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
