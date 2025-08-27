@@ -32,6 +32,35 @@ function App() {
     }
   }, []);
 
+   useEffect(() => {
+    // Ensure viewport meta tag is set correctly
+    let viewport = document.querySelector("meta[name=viewport]");
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes');
+    } else {
+      viewport = document.createElement('meta');
+      viewport.name = "viewport";
+      viewport.content = "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes";
+      document.getElementsByTagName('head')[0].appendChild(viewport);
+    }
+
+    // Apply body styles to prevent overflow
+    document.documentElement.style.overflowX = 'hidden';
+    document.documentElement.style.width = '100%';
+    document.documentElement.style.maxWidth = '100vw';
+    document.body.style.overflowX = 'hidden';
+    document.body.style.width = '100%';
+    document.body.style.maxWidth = '100vw';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+
+    return () => {
+      // Cleanup on unmount (optional)
+      document.documentElement.style.overflowX = '';
+      document.body.style.overflowX = '';
+    };
+  }, []);
+
   return (
     <>
     <div>

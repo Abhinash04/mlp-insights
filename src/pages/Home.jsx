@@ -7,11 +7,13 @@ import Section5 from "../components/Section5";
 const Home = () => {
   return (
     <>
-      <Hero />
-      <Section2 />
-      <Section3 />
-      <Section5 />
-      <Section4 />
+      <div className="min-h-screen bg-white w-full max-w-full overflow-x-hidden">
+        <Hero />
+        <Section2 />
+        <Section3 />
+        <Section5 />
+        <Section4 />
+      </div>
     </>
   );
 };
@@ -43,13 +45,10 @@ export default Home;
 //       <Section3 />
 //       <Section5 />
 //       <Section4 />
-      
+
 //       {/* <ScrollToTop /> */}
 //     </>
 //   );
 // };
 
 // export default Home;
-
-
-
