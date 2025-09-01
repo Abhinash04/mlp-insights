@@ -197,7 +197,7 @@ const Section2 = () => {
         >
           <div className="relative inline-block">
             <a
-              href="mailto:contact.mlpinsight@gmail.com"
+              href="https://forms.gle/eLAKTyqeGT6J4zpf9"
               aria-label="Demander une consultation"
               className="group relative inline-flex items-center justify-center px-10 py-4 text-lg font-semibold text-white bg-blue-600 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             >
