@@ -24,7 +24,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuOpen && !event.target.closest('nav') && !event.target.closest('button')) {

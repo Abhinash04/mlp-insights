@@ -1,17 +1,5 @@
 import { useEffect } from "react";
-import {
-  X,
-  Shield,
-  Database,
-  Clock,
-  Lock,
-  UserCheck,
-  Cookie,
-  ChevronRight,
-  Mail,
-  Building,
-  Users,
-} from "lucide-react";
+import { X, Shield, Database, Clock, Lock, UserCheck, Cookie, ChevronRight, Mail, Building, Users } from "lucide-react";
 
 const PrivacyPolicyModal = ({ isOpen, onClose }) => {
   useEffect(() => {

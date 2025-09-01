@@ -1,16 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  TrendingUp,
-  Target,
-  ArrowRight,
-  Shield,
-  Zap,
-  Gift,
-  BarChart3,
-  RefreshCw,
-  Crosshair,
-  Mail,
-} from "lucide-react";
+import { TrendingUp, Target, ArrowRight, Shield, Zap, Gift, BarChart3, RefreshCw, Crosshair, Mail } from "lucide-react";
 
 const Section2 = () => {
   const [isVisible, setIsVisible] = useState(false);

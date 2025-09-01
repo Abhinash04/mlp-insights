@@ -21,7 +21,7 @@ const ShopperModal = ({ isOpen, onClose }) => {
   };
 
   const handleFormRedirect = () => {
-    window.open('https://forms.gle/yourformlink', '_blank');
+    window.open('https://forms.gle/eLAKTyqeGT6J4zpf9', '_blank');
     onClose();
   };
 
